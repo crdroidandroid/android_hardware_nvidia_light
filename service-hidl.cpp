@@ -22,7 +22,7 @@
 #include <android/log.h>
 #include <hidl/HidlTransportSupport.h>
 #include <hardware/lights.h>
-#include "Light.h"
+#include "Light-hidl.h"
 
 using android::sp;
 using android::status_t;

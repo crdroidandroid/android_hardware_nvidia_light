@@ -15,8 +15,8 @@
 cc_binary {
 
     srcs: [
-        "Light.cpp",
-        "service.cpp",
+        "Light-hidl.cpp",
+        "service-hidl.cpp",
     ],
 
     shared_libs: [

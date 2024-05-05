@@ -16,7 +16,7 @@
 
 #define LOG_TAG "Light"
 
-#include "Light.h"
+#include "Light-hidl.h"
 
 #include <log/log.h>
 

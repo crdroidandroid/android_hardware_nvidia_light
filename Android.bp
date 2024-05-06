@@ -37,3 +37,27 @@ cc_binary {
     vendor: true,
 
 }
+
+cc_binary {
+
+    srcs: [
+        "Light-aidl.cpp",
+        "service-aidl.cpp",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.light-V2-ndk",
+        "libc++fs",
+    ],
+
+    name: "android.hardware.light-service-nvidia",
+    init_rc: ["android.hardware.light-service-nvidia.rc"],
+    vintf_fragments: ["android.hardware.light-service.xml"],
+    relative_install_path: "hw",
+    vendor: true,
+
+}

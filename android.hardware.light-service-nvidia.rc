@@ -1,0 +1,4 @@
+service vendor.light-hal /vendor/bin/hw/android.hardware.light-service-nvidia
+    class hal
+    user system
+    group system

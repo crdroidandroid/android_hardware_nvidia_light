@@ -20,7 +20,7 @@
 
 #include <log/log.h>
 
-#include <experimental/filesystem>
+#include <filesystem>
 
 #define BACKLIGHT_DIR             "/sys/class/backlight"
 #define BACKLIGHT_NODE            "brightness"
@@ -57,7 +57,7 @@ Light::Light() {
     // Required to control power led on sleep/wake.
     mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
 
-    for (auto & node : std::experimental::filesystem::directory_iterator(BACKLIGHT_DIR)) {
+    for (auto & node : std::filesystem::directory_iterator(BACKLIGHT_DIR)) {
         if (mBacklight.open(node.path().string() + "/" BACKLIGHT_NODE), mBacklight.is_open()) {
             ALOGI("Found backlight node: %s", node.path().string().c_str());
             break;
@@ -69,8 +69,8 @@ Light::Light() {
     } else if (mPowerLed.open(LIGHTBAR_NODE), mPowerLed.is_open()) {
         ALOGI("Found lightbar node");
         mPowerLedState.open(LIGHTBAR_STATE);
-    } else if (std::experimental::filesystem::exists(NVSHIELDLED_DIR)) {
-        for (auto & node : std::experimental::filesystem::directory_iterator(NVSHIELDLED_DIR)) {
+    } else if (std::filesystem::exists(NVSHIELDLED_DIR)) {
+        for (auto & node : std::filesystem::directory_iterator(NVSHIELDLED_DIR)) {
             ALOGI("Found nvshieldled node: %s", node.path().string().c_str());
             mPowerLed.open(node.path().string() + "/" NVSHIELDLED_POWER_NODE);
             mPowerLedState.open(node.path().string() + "/" NVSHIELDLED_POWER_STATE);

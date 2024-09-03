@@ -27,7 +27,6 @@ cc_binary {
         "libhardware",
         "libutils",
         "android.hardware.light@2.0",
-        "libc++fs",
     ],
 
     name: "android.hardware.light@2.0-service-nvidia",
@@ -51,7 +50,6 @@ cc_binary {
         "libbase",
         "libbinder_ndk",
         "android.hardware.light-V2-ndk",
-        "libc++fs",
     ],
 
     name: "android.hardware.light-service-nvidia",
